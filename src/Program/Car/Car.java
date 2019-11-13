@@ -5,28 +5,31 @@ public class Car {
     //Type
     private CarCategory carCategory;
 
-    //    kilometerstand
-    private int kilometerstand;
+    //    mileage
+    private int mileage;
 
 
     public Car(){
 
     }
     /**
-     * Getter für kilometerstand
+     * Getter for mileage
+     *
      *
      * @return
      */
-    public Integer getKilometerstand() {
-        return this.kilometerstand;
+    public Integer getmileage() {
+        return this.mileage;
     }
 
     /**
-     * Setter für kilometerstand
+     * Setter for mileage
      *
-     * @param neuer_kilometerstand
+     *
+     * @param new_mileage
+     *
      */
-    public void setKilometerstand(Integer neuer_kilometerstand) {
-        this.kilometerstand = neuer_kilometerstand;
+    public void setmileage(Integer new_mileage) {
+        this.mileage = new_mileage;
     }
 }
