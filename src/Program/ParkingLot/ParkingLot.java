@@ -2,11 +2,13 @@ package Program.ParkingLot;
 
 public class ParkingLot {
 
-    private ParkingLotLocation ParkingLotLocation;
+    ParkingLotLocation ParkingLotLocation;
 
-    private int spot_short
+    int spot_short;
 
-    private int spot_long
+    int spot_long;
+
+//    liste mit parked cars
 
 
 }

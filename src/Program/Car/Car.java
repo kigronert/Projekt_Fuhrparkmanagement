@@ -18,7 +18,7 @@ public class Car {
      *
      * @return
      */
-    public Integer getmileage() {
+    public Integer getMileage() {
         return this.mileage;
     }
 
@@ -29,7 +29,7 @@ public class Car {
      * @param new_mileage
      *
      */
-    public void setmileage(Integer new_mileage) {
+    public void setMileage(Integer new_mileage) {
         this.mileage = new_mileage;
     }
 }
