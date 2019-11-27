@@ -1,4 +1,4 @@
-package Program.ParkingLot;
+package Program.Distance;
 
 import Program.ParkingLot.ParkingLotLocation;
 

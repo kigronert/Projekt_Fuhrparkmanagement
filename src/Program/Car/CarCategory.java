@@ -1,14 +1,23 @@
 package Program.Car;
 
-public enum CarCategory {
-  SP, KO, LU, KL, TR
-}
+import Program.Spot.SpotLength;
 
-//public enum CarCategory {
-//    SP =spot_short;
-//    KO =spot_short;
-//    LU =spot_short;
-//    KL =spot_long;
-//    TR =spot_long;
-//
-//}
+public enum CarCategory {
+  SP, KO, LU, KL(SpotLength.LONG), TR(SpotLength.LONG);
+
+  private SpotLength spotLength;
+
+  private CarCategory(SpotLength spotLength) {
+    this.spotLength = spotLength;
+  }
+
+  private CarCategory() {
+    this.spotLength = SpotLength.SHORT;
+  }
+
+  public SpotLength getSpotLength() {
+    return this.spotLength;
+  }
+
+  }
+

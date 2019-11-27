@@ -1,15 +1,51 @@
-package Program.ParkingLot;
+package Program.Distance;
+
+import Program.ParkingLot.ParkingLotLocation;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class DistanceManager {
 
     // Property
     private static DistanceManager singleInstance = null;
-    private static ArrayList<DistanceLotToLot> distances = new ArrayList<>();
+    private static List<DistanceLotToLot> distances = new ArrayList<>();
 
     private DistanceManager(){
-    //create distance
+        //create distance
+        this.createDistances();
+    }
+
+
+    public static DistanceManager getDistanceManager(){
+        if (singleInstance == null){
+            singleInstance = new DistanceManager();
+        }
+        return singleInstance;
+    }
+
+    public List<DistanceLotToLot> getDistances(){
+        return distances;
+    }
+
+    public int getDistanceFromStartToEnd(ParkingLotLocation iStart, ParkingLotLocation iEnd) {
+        int result = 0;
+
+        for (int i = 0; i < distances.size(); i++) {
+            DistanceLotToLot distanceLotToLot = distances.get(i);
+            if ((iStart == distanceLotToLot.getStart() && iEnd == distanceLotToLot.getEnd())
+                    ||
+                    (iEnd == distanceLotToLot.getStart() && iStart == distanceLotToLot.getEnd())
+            ) {
+                result = distanceLotToLot.getDistance();
+                break;
+            }
+        }
+        return result;
+
+    }
+
+    private void createDistances() {
         DistanceLotToLot distance1  = new DistanceLotToLot(ParkingLotLocation.MainLot, ParkingLotLocation.LotA, 125);
         DistanceLotToLot distance2  = new DistanceLotToLot(ParkingLotLocation.MainLot, ParkingLotLocation.LotB, 100);
         DistanceLotToLot distance3  = new DistanceLotToLot(ParkingLotLocation.MainLot, ParkingLotLocation.LotC, 300);
@@ -32,7 +68,7 @@ public class DistanceManager {
         DistanceLotToLot distance20 = new DistanceLotToLot(ParkingLotLocation.LotD, ParkingLotLocation.LotF, 140);
         DistanceLotToLot distance21 = new DistanceLotToLot(ParkingLotLocation.LotE, ParkingLotLocation.LotF, 160);
 
-    //push distance to list
+        //push distance to list
         distances.add(distance1);
         distances.add(distance2);
         distances.add(distance3);
@@ -54,24 +90,5 @@ public class DistanceManager {
         distances.add(distance19);
         distances.add(distance20);
         distances.add(distance21);
-    }
-
-    public static DistanceManager getDistanceManager(){
-        if (singleInstance == null){
-            singleInstance = new DistanceManager();
-        }
-        return singleInstance;
-    }
-
-    public static ArrayList<DistanceLotToLot> getDistances(){
-        return distances;
-    }
-    public static int getDistanceFromStartToEnd (ParkingLotLocation iStart, ParkingLotLocation iEnd) {
-        for (int i = 0; i < distances.size(); i++) {
-            DistanceLotToLot distanceLotToLot = distances.get(i);
-
-        }
-    return getDistanceFromStartToEnd(ParkingLotLocation.LotA, ParkingLotLocation.LotB);
-
     }
 }
